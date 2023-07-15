@@ -20,6 +20,9 @@ export function JoinForm() {
       .post("http://localhost:4000/join", { user })
       .then((res) => {
         alert(res.data.message);
+        if (res.data.message === "회원가입 성공.") {
+          window.location.href = "/login";
+        }
       })
       .catch((error) => {
         console.log(error);

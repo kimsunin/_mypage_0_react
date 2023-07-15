@@ -18,6 +18,11 @@ export function LoginForm() {
       .post("http://localhost:4000/login", { user })
       .then((res) => {
         alert(res.data.message);
+        if (res.data.message === "로그인 성공.") {
+          const { isLogin, _id } = res.data;
+          localStorage.setItem("LoginUser", JSON.stringify({ isLogin, _id }));
+          window.location.href = "/";
+        }
       })
       .catch((error) => {
         console.log(error);

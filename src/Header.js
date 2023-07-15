@@ -1,11 +1,12 @@
+// eslint-disable-next-line
 import React from "react";
 import TopmenuBar from "./components/Header/Topmenu.js";
 
-function Header() {
+function Header({ loginState }) {
   return (
     <>
-      <h3 color="blue">Header</h3>
-      <TopmenuBar />
+      <h3>Header</h3>
+      <TopmenuBar loginState={loginState} />
     </>
   );
 }

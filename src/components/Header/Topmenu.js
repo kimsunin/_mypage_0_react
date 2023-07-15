@@ -1,11 +1,28 @@
-function TopmenuBar() {
+import React from "react";
+// eslint-disable-next-line
+function TopmenuBar(loginState) {
+  const logout = () => {
+    localStorage.removeItem("LoginUser");
+  };
+  console.log(loginState);
   return (
-    <nav>
-      <a href="/">Home</a>
-      <a href="/notice">Notice</a>
-      <a href="/mypage">mypage</a>
-      <a href="/login">Login</a>
-    </nav>
+    <div>
+      <nav>
+        <div>
+          <a href="/">Home</a>
+          <a href="/notice">Notice</a>
+        </div>
+        <div>
+          {!loginState.loginState.isLogin && <a href="/login">Login</a>}
+          {loginState.loginState.isLogin && <a href="/mypage">Mypage</a>}
+          {loginState.loginState.isLogin && (
+            <a href="/" onClick={logout}>
+              Logout
+            </a>
+          )}
+        </div>
+      </nav>
+    </div>
   );
 }
 
