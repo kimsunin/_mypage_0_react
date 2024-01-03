@@ -2,11 +2,11 @@
 import React from "react";
 import TopmenuBar from "./components/Header/Topmenu.js";
 
-function Header({ loginState }) {
+function Header({ loginState, name }) {
   return (
     <>
       <h3>Header</h3>
-      <TopmenuBar loginState={loginState} />
+      <TopmenuBar loginState={loginState} name={name} />
     </>
   );
 }

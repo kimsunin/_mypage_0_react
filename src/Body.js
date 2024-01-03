@@ -5,7 +5,7 @@ import { Notice } from "./components/Body/Notice.js";
 import { Mypage } from "./components/Body/Mypage.js";
 import { JoinForm } from "./components/Body/Join-page/Join.js";
 
-function Body() {
+function Body({ user }) {
   return (
     <>
       <h3>Body</h3>
@@ -13,7 +13,7 @@ function Body() {
         <Routes>
           <Route path="/" element={<TrendList />} />
           <Route path="/notice" element={<Notice />} />
-          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage" element={<Mypage user={user} />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/join" element={<JoinForm />} />
         </Routes>

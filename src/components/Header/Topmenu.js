@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 // eslint-disable-next-line
-function TopmenuBar(loginState) {
+function TopmenuBar({ loginState, name }) {
   const logout = () => {
     localStorage.removeItem("LoginUser");
   };
-  console.log(loginState);
   return (
     <div>
       <nav>
@@ -13,9 +12,9 @@ function TopmenuBar(loginState) {
           <a href="/notice">Notice</a>
         </div>
         <div>
-          {!loginState.loginState.isLogin && <a href="/login">Login</a>}
-          {loginState.loginState.isLogin && <a href="/mypage">Mypage</a>}
-          {loginState.loginState.isLogin && (
+          {!loginState.isLogin && <a href="/login">Login</a>}
+          {loginState.isLogin && <a href="/mypage">{name}님</a>}
+          {loginState.isLogin && (
             <a href="/" onClick={logout}>
               Logout
             </a>
